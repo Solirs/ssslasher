@@ -77,14 +77,14 @@ public class Main
         System.out.println(threadCount);
 
         //It all starts hre
-        // System.out.println("Starting...");
+        System.out.println("Starting...");
 
-        // try{
-        //     sshbrute();
+        try{
+            sshbrute();
 
-        // } catch(Exception j){
-        //     System.out.print(j);
-        // }
+        } catch(Exception j){
+            System.out.print(j);
+        }
 
 
 
