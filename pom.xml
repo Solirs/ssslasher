@@ -55,6 +55,7 @@
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
+        <finalName>sshbrutewj</finalName>
           <archive>
             <manifest>
               <mainClass>solirs.sshbrutewj.Main</mainClass>
@@ -63,6 +64,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId>
         </configuration>
       </plugin>
     </plugins>
