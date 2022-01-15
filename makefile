@@ -1,4 +1,5 @@
 build:
+	rm -rf dist
 	mvn clean compile assembly:single
 	mkdir dist
 	cp target/*.jar dist
@@ -6,7 +7,7 @@ build:
 
 run:
 	mvn clean compile assembly:single
-	java -jar target/sshbrutewj-1.0-SNAPSHOT-jar-with-dependencies.jar
+	java -jar target/sshbrutewj.jar
 
 clean:
 	rm -rf dist
