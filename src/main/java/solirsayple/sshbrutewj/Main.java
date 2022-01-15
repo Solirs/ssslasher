@@ -64,7 +64,15 @@ public class Main
         ProgramSettings.username = args[2];
         ProgramSettings.wordlist = args[3];
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
-        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
+
+        switch(args[5]){
+            case "y":
+            ProgramSettings.verboseMode = true;
+            default:
+            ProgramSettings.verboseMode = false;
+        }
+
+        ProgramSettings.timeout = Integer.valueOf(args[6]);
 
 
 

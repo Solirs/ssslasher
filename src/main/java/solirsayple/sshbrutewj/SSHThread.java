@@ -19,6 +19,9 @@ public class SSHThread extends Thread {
         while (!ProgramSettings.queue.isEmpty()) {
             String password = ProgramSettings.queue.remove();
             try {
+                if (ProgramSettings.verboseMode){
+                    System.out.println(password);
+                }
                 attemptConnection(password);
                 Main.lockAllThreads();
                 Main.onPasswordCorrect(password);

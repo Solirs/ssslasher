@@ -15,7 +15,7 @@ public class ProgramSettings {
     public static String wordlist;
     public static Boolean verboseMode;
     public static int threadCount;
-    public static int timeout = 100;
+    public static int timeout = 200;
     public static ReentrantLock lock = new ReentrantLock(); 
     public static Queue<String> queue = new LinkedList<>();
 }

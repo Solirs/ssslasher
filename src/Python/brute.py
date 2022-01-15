@@ -22,15 +22,16 @@ def parse_args():
     parser.add_argument('-u', help='Username of the account', required=True, type=str, default="root")
     parser.add_argument('-i', help='IP', required=True, type=str)
     parser.add_argument('-p', help='Port', required=False, type=int, default=22)
+    parser.add_argument('-ti', help='Timeout', required=False, type=int, default=200)
     parser.add_argument('-v', help='Verbose mode', required=False, type=bool, default=False)
     parser.add_argument('-t', help='The number of threads you wish to use. The more threads used the faster \
                         but could lead to some problems and easily notify the victim.', type=int, default=1)
     return parser.parse_args()
 
-def load_main(ip, port, username, wordlist, thread_count, verbose_mode):
+def load_main(ip, port, username, wordlist, thread_count, verbose_mode, timeout):
     # the run command goes here with the args
     output_text(Fore.GREEN, "Everything was good. Loading main file...")
-    os.system(f"java -jar sshbrutewj.jar {ip} {port} {username} {wordlist} {thread_count} {verbose_mode}")
+    os.system(f"java -jar sshbrutewj.jar {ip} {port} {username} {wordlist} {thread_count} {verbose_mode} {timeout}")
 
 if __name__ == '__main__':
     if os.name == 'nt':
