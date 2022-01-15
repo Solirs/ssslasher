@@ -21,7 +21,7 @@ import java.util.Iterator;
 
 public class Main
 {
-    private static List<Thread> threads = new LinkedList<Thread>();
+    private static List<SSHThread> threads = new LinkedList<SSHThread>();
 
     private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
@@ -50,6 +50,14 @@ public class Main
         outputText(Colors.GREEN, "Password cracked: " + password);
     }
 
+    public static void startNewThreads(int threadCount) {
+        for (int i = 0; i < threadCount; i++) {
+            SSHThread new_thread = new SSHThread();
+            new_thread.start();
+            threads.add(new_thread);
+        }
+    }
+
     public static void main( String[] args )
     {
         ProgramSettings.ip = args[0];
@@ -59,8 +67,7 @@ public class Main
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
         ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
 
-        //It all starts here
-        System.out.println("Starting...");
+
 
         try{
             loadwordlist();
