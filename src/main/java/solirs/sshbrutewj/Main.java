@@ -3,23 +3,21 @@ package solirs.sshbrutewj;
 
 import com.jcraft.jsch.*;
 
-import java.io.Console;
-import java.io.InputStream;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import picocli.CommandLine;
-
 
 public class Main
 {
     public static void sshbrute() throws JSchException{
-        String passes[] = {"helloworld", "test", "0000", "4444", "P4ssw0rd"};
+
+        //This is an experimental 
+        String passes[] = {"helloworld", "test", "0000", "4444","P4ssw0rd"};
 
         int i;
         JSch jsch = new JSch();
         jsch.setConfig("StrictHostKeyChecking", "no");
 
         String user = "username";
+
+        int port = 22;
         
 
 
@@ -30,7 +28,7 @@ public class Main
 
 
                 System.out.println("Trying "+ passes[i]);
-                Session session=jsch.getSession(user, "localhost", 22);
+                Session session=jsch.getSession(user, "localhost", port);
 
                 session.setTimeout(100);
     
@@ -48,6 +46,8 @@ public class Main
         }
     
     public static void sshc() throws JSchException{
+
+        //This function is mainly used for testing single connections
 
         String user = "username";
         String pass = "Password";
