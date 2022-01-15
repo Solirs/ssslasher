@@ -3,25 +3,17 @@ package solirs.sshbrutewj;
 
 /* ##---------IMPORTS---------#*/
 
-import com.jcraft.jsch.*; //SSH library
-import java.util.Queue;
-import java.util.concurrent.locks.ReentrantLock;
-
-import javax.swing.ProgressMonitorInputStream;
-
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Iterator;
 
 /* ##---------IMPORTS---------#*/
 
 public class Main
 {
-    private static List<Thread> threads = new LinkedList<Thread>();
+    /* This will probably be useful in the future*/
+    // private static List<Thread> threads = new LinkedList<Thread>();
 
     private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
@@ -43,12 +35,25 @@ public class Main
     // this is just the same thing from the python script. I thought it looked
     // cool :~) - AyPle
     public static void outputText(String color, String text) {
-        System.out.println(color + "\r[+]" + text);
+        System.out.println(color + "\r[+] " + text + Colors.RESET);
+    }
+
+    // this doesn't work too well but would be cool to implement.
+    public static void outputSameLineText(String color, String text) {
+        System.out.print(color + "\r[+] " + text + "\r                            ");
     }
 
     public static void onPasswordCorrect(String password) {
         outputText(Colors.GREEN, "Password fount: " + password);
         System.exit(0);
+    }
+
+    private static void instansiateThreads() throws InterruptedException {
+        for (int i = 0; i < ProgramSettings.threadCount; i++) {
+            // outputSameLineText(Colors.CYAN, "Created thread " + Integer.toString(i) + " out of " + Integer.toString(ProgramSettings.threadCount));
+            SSHThread tr = new SSHThread();
+            tr.start();
+        }
     }
 
     public static void main( String[] args )
@@ -58,16 +63,13 @@ public class Main
         ProgramSettings.username = args[2];
         ProgramSettings.wordlist = args[3];
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
-        //ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
+        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
 
-        //It all starts here
-        System.out.println("Starting...");
+
 
         try{
             loadwordlist();
-            SSHThread sh = new SSHThread();
-            sh.start();
-            threads.add(sh);
+            instansiateThreads();
         } catch(Exception j){
             System.out.print(j);
         }

