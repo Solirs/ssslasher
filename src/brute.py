@@ -19,7 +19,7 @@ def output_text(color:Fore, text:str):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-w', help='The wordlist file path for the dictionary attack', required=True, type=str)
-    parser.add_argument('-u', help='Username of the account', required=True, type=str)
+    parser.add_argument('-u', help='Username of the account', required=True, type=str, default="root")
     parser.add_argument('-i', help='IP', required=True, type=str)
     parser.add_argument('-p', help='Port', required=False, type=int, default=22)
     parser.add_argument('-v', help='Verbose mode', required=False, type=bool, default=False)

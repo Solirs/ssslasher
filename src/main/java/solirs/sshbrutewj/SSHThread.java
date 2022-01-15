@@ -1,4 +1,4 @@
-package solirs.sshbrutewj;
+package solirsayple.sshbrutewj;
 
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;

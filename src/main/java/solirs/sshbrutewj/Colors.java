@@ -1,4 +1,5 @@
-package solirs.sshbrutewj;
+package solirsayple.sshbrutewj;
+
 
 
 public class Colors {

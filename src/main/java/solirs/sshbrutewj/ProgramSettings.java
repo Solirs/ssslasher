@@ -1,4 +1,4 @@
-package solirs.sshbrutewj;
+package solirsayple.sshbrutewj;
 
 import java.util.LinkedList;
 import java.util.Queue;
