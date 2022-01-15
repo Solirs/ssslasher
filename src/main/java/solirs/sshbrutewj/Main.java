@@ -47,8 +47,8 @@ public class Main
     }
 
     public static void onPasswordCorrect(String password) {
-
-        outputText(Colors.GREEN, "Password cracked: " + password);
+        outputText(Colors.GREEN, "Password fount: " + password);
+        System.exit(0);
     }
 
     public static void startNewThreads(int threadCount) {
@@ -74,6 +74,7 @@ public class Main
             loadwordlist();
             SSHThread sh = new SSHThread();
             sh.start();
+            threads.add(sh);
         } catch(Exception j){
             System.out.print(j);
         }
