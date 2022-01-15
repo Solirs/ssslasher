@@ -28,4 +28,9 @@ public class SSHThread extends Thread {
             }
         }
     }
+    public void start(){
+
+        run();
+
+    }
 }
