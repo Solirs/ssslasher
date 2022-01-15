@@ -8,6 +8,15 @@ public class Main
     private static String wordlistPath;
     private static int threadCount;
 
+    public static void parseargs(String wordlist, int Threads){
+
+        wordlistPath = wordlist;
+        threadCount = Threads;
+        System.out.println("Wordlist" + wordlistPath);
+        System.out.println("Thread count" + threadCount);
+
+    }
+
     public static void sshbrute() throws JSchException{
 
         //This is an experimental engine for the bruteforcer.
@@ -70,12 +79,13 @@ public class Main
 
     public static void main( String[] args )
     {
-        wordlistPath = args[0];
-        threadCount = Integer.parseInt(args[1]);
+        parseargs(args[0], Integer.parseInt(args[1]));
+
+
         System.out.println(wordlistPath);
         System.out.println(threadCount);
 
-        //It all starts hre
+        //It all starts here
         System.out.println("Starting...");
 
         try{
