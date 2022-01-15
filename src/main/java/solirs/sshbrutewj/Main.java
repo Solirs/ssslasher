@@ -58,24 +58,6 @@ public class Main
         }
 
     }
-    
-    public static void sshc() throws JSchException{
-
-        //This function is mainly used for testing single connections
-
-        String user = "username";
-        String pass = "Password";
-        
-    
-
-        JSch jsch = new JSch();
-        jsch.setConfig("StrictHostKeyChecking", "no");
-        Session session=jsch.getSession(user, "localhost", 22);
-        session.setPassword(pass);
-        session.connect();
-        System.out.println("Connected");
-
-    }
 
     public static void main( String[] args )
     {
