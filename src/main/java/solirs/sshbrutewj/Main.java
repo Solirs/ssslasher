@@ -6,6 +6,9 @@ import com.jcraft.jsch.*; //SSH library
 
 public class Main
 {
+    private static String wordlistPath;
+    private static int threadCount;
+
     public static void sshbrute() throws JSchException{
 
         //This is an experimental engine for the bruteforcer.
@@ -46,7 +49,7 @@ public class Main
 
         }
 
-        }
+    }
     
     public static void sshc() throws JSchException{
 
@@ -65,17 +68,23 @@ public class Main
         System.out.println("Connected");
 
     }
+
     public static void main( String[] args )
     {
+        wordlistPath = args[0];
+        threadCount = Integer.parseInt(args[1]);
+        System.out.println(wordlistPath);
+        System.out.println(threadCount);
+
         //It all starts hre
-        System.out.println("Starting...");
+        // System.out.println("Starting...");
 
-        try{
-            sshbrute();
+        // try{
+        //     sshbrute();
 
-        } catch(Exception j){
-            System.out.print(j);
-        }
+        // } catch(Exception j){
+        //     System.out.print(j);
+        // }
 
 
 
