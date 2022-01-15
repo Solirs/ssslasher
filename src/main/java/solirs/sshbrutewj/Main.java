@@ -5,8 +5,13 @@ package solirs.sshbrutewj;
 
 import com.jcraft.jsch.*; //SSH library
 import java.util.Queue;
+import java.util.concurrent.locks.ReentrantLock;
+
+import javax.swing.ProgressMonitorInputStream;
+
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,9 +21,9 @@ import java.util.Iterator;
 
 public class Main
 {
+    private static List<Thread> threads = new LinkedList<Thread>();
 
-    private static void loadwordlist() throws IOException{
-
+    private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
@@ -29,51 +34,20 @@ public class Main
         }
 
         fstream.close();
-
     }
-    
-    // private static void sshbrute() throws JSchException{
-
-    //     //This is an experimental engine for the bruteforcer.
-
-    //     JSch jsch = new JSch(); //Initialize jsch and the config
-    //     jsch.setConfig("StrictHostKeyChecking", "no"); //Disable StrictHostKeyChecking since it causes issues with the ssh connection.
-
-    //     String user = "user";
-    //     int port = 3022;
-    //     Iterator<String> itr = BruteData.iterator();
-
-    //     while (itr.hasNext()){
-
-    //         try{
-    //             //Try to connect with the password, if it works exit and print the password.
-
-    //             String pass = itr.next();
-
-
-    //             System.out.println("Trying "+ pass);
-    //             Session session=jsch.getSession(user, "localhost", port);
-
-    //             session.setTimeout(100);
-    
-    //             session.setPassword(pass);
-    //             session.connect();
-    //             System.out.println("CONNECTED " + "Password is " + pass);
-    //             System.exit(0);
-                
-    //         }catch(Exception e){
-    //             //Continue if the password is wrong
-    //             continue;
-    //         }
-
-    //     }
-
-    // }
 
     public static void lockAllThreads() {
-        for (Thread thread : iterable) {
-            
-        }
+        ProgramSettings.lock.lock();
+    }
+    
+    // this is just the same thing from the python script. I thought it looked
+    // cool :~) - AyPle
+    public static void outputText(String color, String text) {
+        System.out.println(color + "\r[+]" + text);
+    }
+
+    public static void onPasswordCorrect(String password) {
+        outputText(Colors.GREEN, "Password cracked: " + password);
     }
 
     public static void main( String[] args )

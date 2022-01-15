@@ -2,6 +2,7 @@ package solirs.sshbrutewj;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.locks.ReentrantLock;
 
 // the data from this class is accesed by multiple
 // other classes in the program. It's used to keep
@@ -15,6 +16,7 @@ public class ProgramSettings {
     public static Boolean verboseMode;
     public static int threadCount;
     public static int timeout = 100;
+    public static ReentrantLock lock = new ReentrantLock(); 
     public static Queue<String> queue = new LinkedList<>();
 }
 
