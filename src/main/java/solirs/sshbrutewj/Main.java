@@ -1,6 +1,14 @@
 package solirs.sshbrutewj;
 
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
 import com.jcraft.jsch.*; //SSH library
 
 
@@ -85,8 +93,5 @@ public class Main
         } catch(Exception j){
             System.out.print(j);
         }
-
-
-
     }
 }
