@@ -15,7 +15,7 @@ def parse_args():
 def load_main(wordlist, thread_count):
     # the run command goes here with the args
     output_text(Fore.GREEN, "Everything was good. Loading main file...")
-    os.system(f"java main/java/solirs/sshbrutewj/Main.java {wordlist} {thread_count}")
+    os.system(f"java -jar sshbrutewj.jar {wordlist} {thread_count}")
 
 if __name__ == '__main__':
     if os.name == 'nt':
