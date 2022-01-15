@@ -20,13 +20,11 @@ public class SSHThread extends Thread {
             String password = ProgramSettings.queue.remove();
             try {
                 attemptConnection(password);
-            } catch (JSchException e) {
-                continue;
-            } finally {
-                // password correct
                 Main.lockAllThreads();
                 Main.onPasswordCorrect(password);
-            }
+            } catch (JSchException e) {
+                continue;
+            } 
         }
     }
     public void start(){
