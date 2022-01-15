@@ -47,7 +47,7 @@ public class Main
     }
 
     public static void onPasswordCorrect(String password) {
-        outputText(Colors.GREEN, "Password fount: " + password);
+        outputText(Colors.GREEN, "Password found: " + password);
         System.exit(0);
     }
 
