@@ -1,6 +1,17 @@
 from colorama import Fore
 import argparse
 import os
+import sys
+
+version = "ALPHA 1.0.0"
+
+def credits():
+    print("sshbrutewj" + version)
+    print("Credits:")
+    print("Ayple https://github.com/ItsNotAyPle")
+    print("Solirs https://github.com/Solirs")
+    sys.exit(0)
+
 
 def output_text(color:Fore, text:str):
     print(color, "\r[-]", text, Fore.RESET)
@@ -26,6 +37,8 @@ if __name__ == '__main__':
         output_text(Fore.RED, "Suport for windows will be in the future")  
         exit()
 
+    if len(sys.argv) == 1:
+        credits()
     args = parse_args()
     wordlist = args.w
     thread_count = args.t

@@ -12,8 +12,12 @@ import java.io.InputStreamReader;
 
 public class Main
 {
+<<<<<<< HEAD
     /* This will probably be useful in the future*/
     // private static List<Thread> threads = new LinkedList<Thread>();
+=======
+    private static List<SSHThread> threads = new LinkedList<SSHThread>();
+>>>>>>> 6292a694121039de403d77bd20cd61fc535512c5
 
     private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
@@ -44,7 +48,7 @@ public class Main
     }
 
     public static void onPasswordCorrect(String password) {
-        outputText(Colors.GREEN, "Password fount: " + password);
+        outputText(Colors.GREEN, "Password found: " + password);
         System.exit(0);
     }
 
