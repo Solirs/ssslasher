@@ -47,6 +47,7 @@ public class Main
     }
 
     public static void onPasswordCorrect(String password) {
+
         outputText(Colors.GREEN, "Password cracked: " + password);
     }
 
@@ -57,14 +58,15 @@ public class Main
         ProgramSettings.username = args[2];
         ProgramSettings.wordlist = args[3];
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
-        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
+        //ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
 
         //It all starts here
         System.out.println("Starting...");
 
         try{
             loadwordlist();
-            sshbrute();
+            SSHThread sh = new SSHThread();
+            sh.start();
         } catch(Exception j){
             System.out.print(j);
         }

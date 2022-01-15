@@ -25,8 +25,13 @@ public class SSHThread extends Thread {
             } finally {
                 // password correct
                 Main.lockAllThreads();
-                Main.onPasswordCorrect();
+                Main.onPasswordCorrect(password);
             }
         }
+    }
+    public void start(){
+
+        run();
+
     }
 }
