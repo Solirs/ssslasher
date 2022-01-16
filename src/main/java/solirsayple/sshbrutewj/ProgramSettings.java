@@ -2,8 +2,11 @@ package solirsayple.sshbrutewj;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 
 // the data from this class is accesed by multiple
@@ -19,7 +22,7 @@ public class ProgramSettings {
     public static int threadCount;
     public static int timeout = 200;
     public static ReentrantLock lock = new ReentrantLock(); 
-    public static Queue<String> queue = new LinkedList<>();
+    public static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
     public static ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 }
 

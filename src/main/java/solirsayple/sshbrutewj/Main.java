@@ -55,6 +55,7 @@ public class Main
             SSHThread tr = new SSHThread();
 
             ProgramSettings.executor.execute(tr);
+            Thread.sleep(300); //To make sure everything in the queue is consumed a small interval between every thread is recommended.
         }
     }
 

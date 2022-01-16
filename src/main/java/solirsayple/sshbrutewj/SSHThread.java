@@ -14,21 +14,27 @@ public class SSHThread implements Runnable{
         session.connect();
     }
 
-    public void run() {
+    public synchronized void run() {
         jsch.setConfig("StrictHostKeyChecking", "no");
         while (!ProgramSettings.queue.isEmpty()) {
-            String password = ProgramSettings.queue.remove();
-            try {
-                if (ProgramSettings.verboseMode == true){
-                    System.out.println(password);
-                }
-    
-                attemptConnection(password);
-                Main.lockAllThreads();
-                Main.onPasswordCorrect(password);
-            } catch (JSchException e) {
+            try{
+                String password = ProgramSettings.queue.take();
+                try {
+                    if (ProgramSettings.verboseMode == true){
+                        System.out.println(password);
+                    }
+        
+                    attemptConnection(password);
+                    Main.lockAllThreads();
+                    Main.onPasswordCorrect(password);
+                } catch (JSchException e) {
+                    continue;
+                } 
+            } catch (InterruptedException e){
                 continue;
-            } 
+            }
+            
+
         }
     }
 
