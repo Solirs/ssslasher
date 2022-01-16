@@ -3,6 +3,8 @@ package solirsayple.sshbrutewj;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 // the data from this class is accesed by multiple
 // other classes in the program. It's used to keep
@@ -18,5 +20,6 @@ public class ProgramSettings {
     public static int timeout = 200;
     public static ReentrantLock lock = new ReentrantLock(); 
     public static Queue<String> queue = new LinkedList<>();
+    public static ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 }
 

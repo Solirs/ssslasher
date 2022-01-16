@@ -4,7 +4,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
-public class SSHThread extends Thread {
+public class SSHThread implements Runnable{
     private JSch jsch = new JSch();
 
     public void attemptConnection(String password) throws JSchException {
@@ -19,9 +19,10 @@ public class SSHThread extends Thread {
         while (!ProgramSettings.queue.isEmpty()) {
             String password = ProgramSettings.queue.remove();
             try {
-                if (ProgramSettings.verboseMode){
+                if (ProgramSettings.verboseMode == true){
                     System.out.println(password);
                 }
+    
                 attemptConnection(password);
                 Main.lockAllThreads();
                 Main.onPasswordCorrect(password);

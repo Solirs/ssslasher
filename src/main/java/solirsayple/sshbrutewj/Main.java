@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.sql.Time;
 
 /* ##---------IMPORTS---------#*/
 
@@ -53,7 +56,8 @@ public class Main
         for (int i = 0; i < ProgramSettings.threadCount; i++) {
             // outputSameLineText(Colors.CYAN, "Created thread " + Integer.toString(i) + " out of " + Integer.toString(ProgramSettings.threadCount));
             SSHThread tr = new SSHThread();
-            tr.start();
+
+            ProgramSettings.executor.execute(tr);
         }
     }
 
@@ -65,12 +69,7 @@ public class Main
         ProgramSettings.wordlist = args[3];
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
 
-        switch(args[5]){
-            case "y":
-            ProgramSettings.verboseMode = true;
-            default:
-            ProgramSettings.verboseMode = false;
-        }
+        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
 
         ProgramSettings.timeout = Integer.valueOf(args[6]);
 
