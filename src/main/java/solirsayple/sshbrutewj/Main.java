@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.Time;
 
 /* ##---------IMPORTS---------#*/
 
@@ -47,6 +48,7 @@ public class Main
     }
     
     private static void printOutStatistics() {
+        statistics.end();
         TimeResult timeresult = statistics.timeResult();
         outputText(Colors.CYAN, "Days: " + timeresult.day);
         outputText(Colors.CYAN, "Hours: " + timeresult.hour);
