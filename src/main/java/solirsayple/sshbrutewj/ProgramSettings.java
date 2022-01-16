@@ -17,7 +17,7 @@ public class ProgramSettings {
     public static String wordlist;
     public static Boolean verboseMode;
     public static int threadCount;
-    public static int timeout = 200;
+    public static int timeout = 1000;
     public static ReentrantLock lock = new ReentrantLock(); 
     public static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
     public static ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
