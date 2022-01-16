@@ -1,31 +1,29 @@
 package solirsayple.sshbrutewj;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Map;
 
 class TimeResult {
-    public int day;
-    public int hour;
-    public int minute;
-    public int second;
-    public int milisecond;
+    public String day;
+    public String hour;
+    public String minute;
+    public String second;
+    public String milisecond;
 
-    public TimeResult(
+    public TimeResult
+    (
         int day, 
         int hour, 
         int minute, 
         int second, 
-        int millisecond
+        int milisecond
     )
     {
-        this.day = day;
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
-        this.milisecond = milisecond;
+        this.day = Integer.toString(day);
+        this.hour = Integer.toString(hour);
+        this.minute = Integer.toString(minute);
+        this.second = Integer.toString(second);
+        this.milisecond = Integer.toString(milisecond % 1000);
     }
 }
 

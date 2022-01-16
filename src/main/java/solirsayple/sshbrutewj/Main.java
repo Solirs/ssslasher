@@ -45,9 +45,25 @@ public class Main
     public static void outputSameLineText(String color, String text) {
         System.out.print(color + "\r[+] " + text + "\r                            ");
     }
+    
+    private static void printOutStatistics() {
+        TimeResult timeresult = statistics.result();
+        outputText(Colors.CYAN, "Days: " + timeresult.day);
+        outputText(Colors.CYAN, "Hours: " + timeresult.hour);
+        outputText(Colors.CYAN, "Minutes: " + timeresult.minute);
+        outputText(Colors.CYAN, "Seconds: " + timeresult.second);
+        outputText(Colors.CYAN, "Miliseconds: " + timeresult.milisecond);
+
+        onProgramExit();
+    }
 
     public static void onPasswordCorrect(String password) {
         outputText(Colors.GREEN, "Password found: " + password);
+        printOutStatistics();
+        onProgramExit();
+    }
+
+    public static void onProgramExit() {
         System.exit(0);
     }
 
@@ -61,26 +77,35 @@ public class Main
         }
     }
 
+
     public static void main( String[] args )
     {
-        ProgramSettings.ip = args[0];
-        ProgramSettings.port = Integer.valueOf(args[1]);
-        ProgramSettings.username = args[2];
-        ProgramSettings.wordlist = args[3];
-        ProgramSettings.threadCount = Integer.valueOf(args[4]);
-        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
-        ProgramSettings.timeout = Integer.valueOf(args[6]);
+        // ProgramSettings.ip = args[0];
+        // ProgramSettings.port = Integer.valueOf(args[1]);
+        // ProgramSettings.username = args[2];
+        // ProgramSettings.wordlist = args[3];
+        // ProgramSettings.threadCount = Integer.valueOf(args[4]);
+        // ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
+        // ProgramSettings.timeout = Integer.valueOf(args[6]);
 
         statistics = new Statistics();
         outputText(Colors.GREEN, "Starting timer...");
         statistics.start();
-
-
-        try{
-            loadwordlist();
-            instansiateThreads();
-        } catch(Exception j){
-            System.out.print(j);
+        for (int k = 0; k < 43; k++) {
+            for (int i = 0; i < 999999999; i++) {
+                for (int j = 0; j < 999999999; j++) {
+                    continue;
+                }
+            }
         }
+        statistics.end();
+        printOutStatistics();
+        
+        // try{
+        //     loadwordlist();
+        //     instansiateThreads();
+        // } catch(Exception j){
+        //     System.out.print(j);
+        // }
     }
 }
