@@ -47,6 +47,7 @@ if __name__ == '__main__':
     port = args.p 
     user = args.u
     verbose = args.v
+    timeout = args.ti
     if not os.path.exists(wordlist): 
         output_text(Fore.RED, f"Wordlist '{wordlist}' does not exist!")
         exit()
@@ -57,4 +58,4 @@ if __name__ == '__main__':
     if thread_count == None:
         output_text(Fore.YELLOW, f"Thread count was not set and will automatically be {thread_count}")
 
-    load_main(ip_addr, port, user, wordlist, thread_count, verbose)
+    load_main(ip_addr, port, user, wordlist, thread_count, verbose, timeout)
