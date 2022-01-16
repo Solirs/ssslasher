@@ -1,4 +1,4 @@
-from colorama import Fore
+from colorama import Fore, Style
 import argparse
 import os
 import sys
@@ -12,6 +12,28 @@ def credits():
     print("Solirs https://github.com/Solirs")
     sys.exit(0)
 
+def preattack(ip, port, username, wordlist, thread_count, verbose_mode, timeout):
+    message = f"""
+    sshbrutewj by Solirs and Ayple.
+    [========================================]
+    |
+    | Target ip: {Style.BRIGHT + Fore.GREEN}{ip}{Style.RESET_ALL}
+    | Target port: {Style.BRIGHT + Fore.GREEN}{port}{Style.RESET_ALL}
+    | Target user: {Style.BRIGHT + Fore.GREEN}{user}{Style.RESET_ALL}
+    |
+    | Wordlist path: {Style.BRIGHT + Fore.GREEN}{wordlist}{Style.RESET_ALL} 
+    | Threads: {Style.BRIGHT + Fore.GREEN}{thread_count}{Style.RESET_ALL}
+    | Timeout: {Style.BRIGHT + Fore.GREEN}{timeout}{Style.RESET_ALL}
+    | Verbose mode: {Style.BRIGHT + Fore.GREEN}{verbose_mode}{Style.RESET_ALL}
+    | 
+    [========================================] {Style.RESET_ALL}
+    """
+    print(message)
+    input("Press enter to continue...")
+    load_main(ip, port, username, wordlist, thread_count, verbose_mode, timeout)
+
+
+
 
 def output_text(color:Fore, text:str):
     print(color, "\r[-]", text, Fore.RESET)
@@ -22,7 +44,7 @@ def parse_args():
     parser.add_argument('-u', help='Username of the account', required=True, type=str, default="root")
     parser.add_argument('-i', help='IP', required=True, type=str)
     parser.add_argument('-p', help='Port', required=False, type=int, default=22)
-    parser.add_argument('-ti', help='Timeout', required=False, type=int, default=200)
+    parser.add_argument('-ti', help='Timeout', required=False, type=int, default=1500)
     parser.add_argument('-v', help='Verbose mode', required=False, type=bool, default=False)
     parser.add_argument('-t', help='The number of threads you wish to use. The more threads used the faster \
                         but could lead to some problems and easily notify the victim.', type=int, default=1)
@@ -58,4 +80,7 @@ if __name__ == '__main__':
     if thread_count == None:
         output_text(Fore.YELLOW, f"Thread count was not set and will automatically be {thread_count}")
 
-    load_main(ip_addr, port, user, wordlist, thread_count, verbose, timeout)
+    preattack(ip_addr, port, user, wordlist, thread_count, verbose, timeout)
+
+
+
