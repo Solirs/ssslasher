@@ -23,7 +23,9 @@ public class SSHThread implements Runnable{
                     if (ProgramSettings.verboseMode == true){
                         System.out.println(password);
                     }
-        
+                    
+                    Statistics.attemptsCount += 1;
+
                     attemptConnection(password);
                     Main.lockAllThreads();
                     Main.onPasswordCorrect(password);

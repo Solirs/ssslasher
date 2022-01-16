@@ -30,6 +30,8 @@ class TimeResult {
 public class Statistics {
     private Instant startTime = null;
     private Instant endTime = null;
+    public static int attemptsCount = 0;
+
     
     public void start() {
         startTime = Instant.now();
@@ -38,8 +40,8 @@ public class Statistics {
     public void end() {
         endTime = Instant.now();
     }
-    
-    public TimeResult result() {
+
+    public TimeResult timeResult() {
         Duration diff = Duration.between(startTime, endTime);
         int days = (int)diff.toDays();
         int hour = (int)diff.toHours();

@@ -16,7 +16,7 @@ public class Main
     /* This will probably be useful in the future*/
     // private static List<Thread> threads = new LinkedList<Thread>();
 
-    private static Statistics statistics;
+    private static Statistics statistics = new Statistics();
 
     private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
@@ -47,13 +47,13 @@ public class Main
     }
     
     private static void printOutStatistics() {
-        TimeResult timeresult = statistics.result();
+        TimeResult timeresult = statistics.timeResult();
         outputText(Colors.CYAN, "Days: " + timeresult.day);
         outputText(Colors.CYAN, "Hours: " + timeresult.hour);
         outputText(Colors.CYAN, "Minutes: " + timeresult.minute);
         outputText(Colors.CYAN, "Seconds: " + timeresult.second);
         outputText(Colors.CYAN, "Miliseconds: " + timeresult.milisecond);
-
+        outputText(Colors.CYAN, "Attempts: " + Statistics.attemptsCount);
         onProgramExit();
     }
 
@@ -80,32 +80,22 @@ public class Main
 
     public static void main( String[] args )
     {
-        // ProgramSettings.ip = args[0];
-        // ProgramSettings.port = Integer.valueOf(args[1]);
-        // ProgramSettings.username = args[2];
-        // ProgramSettings.wordlist = args[3];
-        // ProgramSettings.threadCount = Integer.valueOf(args[4]);
-        // ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
-        // ProgramSettings.timeout = Integer.valueOf(args[6]);
+        ProgramSettings.ip = args[0];
+        ProgramSettings.port = Integer.valueOf(args[1]);
+        ProgramSettings.username = args[2];
+        ProgramSettings.wordlist = args[3];
+        ProgramSettings.threadCount = Integer.valueOf(args[4]);
+        ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
+        ProgramSettings.timeout = Integer.valueOf(args[6]);
 
-        statistics = new Statistics();
         outputText(Colors.GREEN, "Starting timer...");
         statistics.start();
-        for (int k = 0; k < 43; k++) {
-            for (int i = 0; i < 999999999; i++) {
-                for (int j = 0; j < 999999999; j++) {
-                    continue;
-                }
-            }
-        }
-        statistics.end();
-        printOutStatistics();
         
-        // try{
-        //     loadwordlist();
-        //     instansiateThreads();
-        // } catch(Exception j){
-        //     System.out.print(j);
-        // }
+        try{
+            loadwordlist();
+            instansiateThreads();
+        } catch(Exception j){
+            System.out.print(j);
+        }
     }
 }
