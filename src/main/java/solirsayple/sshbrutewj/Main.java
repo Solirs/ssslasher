@@ -16,6 +16,8 @@ public class Main
     /* This will probably be useful in the future*/
     // private static List<Thread> threads = new LinkedList<Thread>();
 
+    private static Statistics statistics;
+
     private static void loadwordlist() throws IOException {
         FileInputStream fstream = new FileInputStream(ProgramSettings.wordlist);
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -66,11 +68,12 @@ public class Main
         ProgramSettings.username = args[2];
         ProgramSettings.wordlist = args[3];
         ProgramSettings.threadCount = Integer.valueOf(args[4]);
-
         ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
-
         ProgramSettings.timeout = Integer.valueOf(args[6]);
 
+        statistics = new Statistics();
+        outputText(Colors.GREEN, "Starting timer...");
+        statistics.start();
 
 
         try{
