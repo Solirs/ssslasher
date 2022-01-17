@@ -43,7 +43,7 @@
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
-        <finalName>sshbrutewj</finalName>
+        <finalName>java-sshbrutewj</finalName>
           <archive>
             <manifest>
               <mainClass>solirsayple.sshbrutewj.Main</mainClass>
