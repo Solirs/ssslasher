@@ -50,4 +50,6 @@ public class Statistics {
         int miliseconds = (int)diff.toMillis();
         return new TimeResult(days, hour, minutes, seconds, miliseconds);
     }
+    
 }
+

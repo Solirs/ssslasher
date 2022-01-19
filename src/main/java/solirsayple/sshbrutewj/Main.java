@@ -36,31 +36,22 @@ public class Main
         ProgramSettings.lock.lock();
     }
     
-    // this is just the same thing from the python script. I thought it looked
-    // cool :~) - AyPle
-    public static void outputText(String color, String text) {
-        System.out.println(color + "[+] " + text + Colors.RESET);
-    }
 
-    // this doesn't work too well but would be cool to implement.
-    public static void outputSameLineText(String color, String text) {
-        System.out.print(color + "\r[+] " + text + "\r                            ");
-    }
     
     private static void printOutStatistics() {
         statistics.end();
         TimeResult timeresult = statistics.timeResult();
-        outputText(Colors.CYAN, "Days: " + timeresult.day);
-        outputText(Colors.CYAN, "Hours: " + timeresult.hour);
-        outputText(Colors.CYAN, "Minutes: " + timeresult.minute);
-        outputText(Colors.CYAN, "Seconds: " + timeresult.second);
-        outputText(Colors.CYAN, "Miliseconds: " + timeresult.milisecond);
-        outputText(Colors.CYAN, "Attempts: " + Statistics.attemptsCount);
+        out.outputText(Colors.CYAN, "Days: " + timeresult.day);
+        out.outputText(Colors.CYAN, "Hours: " + timeresult.hour);
+        out.outputText(Colors.CYAN, "Minutes: " + timeresult.minute);
+        out.outputText(Colors.CYAN, "Seconds: " + timeresult.second);
+        out.outputText(Colors.CYAN, "Miliseconds: " + timeresult.milisecond);
+        out.outputText(Colors.CYAN, "Attempts: " + Statistics.attemptsCount);
         onProgramExit();
     }
 
     public static void onPasswordCorrect(String password) {
-        outputText(Colors.GREEN, "Password found: " + password);
+        out.outputText(Colors.GREEN, "Password found: " + password);
         printOutStatistics();
         onProgramExit();
     }
@@ -91,7 +82,7 @@ public class Main
 
         SSHutils.performCheck();
 
-        outputText(Colors.GREEN, "Starting timer...");
+        out.outputText(Colors.GREEN, "Starting timer...");
         statistics.start();
 
         
