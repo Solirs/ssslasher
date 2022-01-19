@@ -88,6 +88,7 @@ public class Main
         
         try{
             loadwordlist();
+            out.outputText(Colors.GREEN, "Starting attack.");
             instansiateThreads();
         } catch(Exception j){
             System.out.print(j);
