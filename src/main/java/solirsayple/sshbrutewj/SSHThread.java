@@ -16,6 +16,7 @@ public class SSHThread implements Runnable{
 
     public synchronized void run() {
         jsch.setConfig("StrictHostKeyChecking", "no");
+
         while (!ProgramSettings.queue.isEmpty()) {
             try{
                 String password = ProgramSettings.queue.take();

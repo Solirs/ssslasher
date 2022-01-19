@@ -39,7 +39,7 @@ public class Main
     // this is just the same thing from the python script. I thought it looked
     // cool :~) - AyPle
     public static void outputText(String color, String text) {
-        System.out.println(color + "\r[+] " + text + Colors.RESET);
+        System.out.println(color + "[+] " + text + Colors.RESET);
     }
 
     // this doesn't work too well but would be cool to implement.
@@ -89,8 +89,12 @@ public class Main
         ProgramSettings.verboseMode = Boolean.valueOf(args[5]);
         ProgramSettings.timeout = Integer.valueOf(args[6]);
 
+        SSHutils.performCheck();
+
         outputText(Colors.GREEN, "Starting timer...");
         statistics.start();
+
+        
         
         try{
             loadwordlist();
