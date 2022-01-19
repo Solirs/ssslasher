@@ -1,8 +1,6 @@
 package solirsayple.sshbrutewj;
 
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
+
 import java.net.*;
 
 public class SSHutils {
