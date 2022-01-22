@@ -21,5 +21,5 @@ install:
 	cp target/*.jar dist
 	chmod +x src/Python/ssslasher
 	cp src/Python/ssslasher dist
-	python -m pip install -r src/Python/requirements.txt
+	pip3 install -r src/Python/requirements.txt
 	cp dist/* /usr/local/bin
