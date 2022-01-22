@@ -4,6 +4,7 @@ build:
 	mkdir dist
 	cp target/*.jar dist
 	cp src/Python/ssslasher dist
+	pip3 install src/Python/requirements.txt
 
 run:
 	mvn clean compile assembly:single
@@ -20,4 +21,5 @@ install:
 	cp target/*.jar dist
 	chmod +x src/Python/ssslasher
 	cp src/Python/ssslasher dist
+	python -m pip install -r src/Python/requirements.txt
 	cp dist/* /usr/local/bin
