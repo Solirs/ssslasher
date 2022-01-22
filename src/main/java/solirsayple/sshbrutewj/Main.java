@@ -40,17 +40,17 @@ public class Main
     private static void printOutStatistics() {
         statistics.end();
         TimeResult timeresult = statistics.timeResult();
-        out.outputText(Colors.CYAN, "Days: " + timeresult.day);
-        out.outputText(Colors.CYAN, "Hours: " + timeresult.hour);
-        out.outputText(Colors.CYAN, "Minutes: " + timeresult.minute);
-        out.outputText(Colors.CYAN, "Seconds: " + timeresult.second);
-        out.outputText(Colors.CYAN, "Miliseconds: " + timeresult.milisecond);
-        out.outputText(Colors.CYAN, "Attempts: " + Statistics.attemptsCount);
+        out.outputText(Colors.BRIGHT_CYAN, "Days: " + timeresult.day);
+        out.outputText(Colors.BRIGHT_CYAN, "Hours: " + timeresult.hour);
+        out.outputText(Colors.BRIGHT_CYAN, "Minutes: " + timeresult.minute);
+        out.outputText(Colors.BRIGHT_CYAN, "Seconds: " + timeresult.second);
+        out.outputText(Colors.BRIGHT_CYAN, "Miliseconds: " + timeresult.milisecond);
+        out.outputText(Colors.BRIGHT_CYAN, "Attempts: " + Statistics.attemptsCount);
         onProgramExit();
     }
 
     public static void onPasswordCorrect(String password) {
-        out.outputText(Colors.GREEN, "Password found: " + password);
+        out.timedoutputText(Colors.BRIGHT_GREEN, "Password found: " + password);
         printOutStatistics();
         onProgramExit();
     }
@@ -88,7 +88,8 @@ public class Main
         
         try{
             loadwordlist();
-            out.outputText(Colors.GREEN, "Starting attack.");
+
+            out.timedoutputText(Colors.BRIGHT_GREEN, "Starting attack");
             instansiateThreads();
         } catch(Exception j){
             System.out.print(j);
