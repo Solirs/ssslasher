@@ -26,6 +26,22 @@ It's quite fast, provides a pretty and clear command line interface, works out o
 
 4. Test it with `ssshlasher`
 
+## From release tarball
+
+
+1. Make sure you have python, openjdk, and pip installed.
+
+1. Go to the latest release and install the tar.xz file. https://github.com/Solirs/ssslasher/releases/tag/v1.0.0
+
+2. Extract it using `tar -xf ssslasher-release-*`
+
+3. cd into it and run `sudo make install` 
+NOTE: You might want to chown the files to your user.
+
+4. Test it with `ssslasher`
+
+
+
 
 
 
