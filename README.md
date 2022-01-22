@@ -1,9 +1,9 @@
-# sslasher
+# ssslasher
 
 by Solirs(https://github.com/Solirs) and ItsNotAyple(https://github.com/ItsNotAyPle)
 
 
-sslasher is an easy to use multithreaded SSH password bruteforcing tool written mainly in Java, but with the entry point written in python for convenience.
+ssslasher is an easy to use multithreaded SSH password bruteforcing tool written mainly in Java, but with the entry point written in python for convenience.
 It's quite fast, provides a pretty and clear command line interface, works out of the box with no extra setup outside of python modules.
 
 
