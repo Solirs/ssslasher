@@ -10,7 +10,7 @@ file_path = os.path.dirname(os.path.realpath(__file__))
 jarpath = os.path.join(file_path, "java-sshbrutewj.jar")
 
 def credits():
-    print("sshbrutewj" + version)
+    print("ssslasher" + version)
     print("Credits:")
     print("Ayple https://github.com/ItsNotAyPle")
     print("Solirs https://github.com/Solirs")
@@ -18,7 +18,7 @@ def credits():
 
 def preattack(ip, port, username, wordlist, thread_count, verbose_mode, timeout):
     message = f"""
-    sshbrutewj by Solirs and Ayple.
+    sshslasher by Solirs and Ayple.
     [========================================]
     |
     | Target ip: {Style.BRIGHT + Fore.GREEN}{ip}{Style.RESET_ALL}

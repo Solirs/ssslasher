@@ -3,7 +3,7 @@ build:
 	mvn clean compile assembly:single
 	mkdir dist
 	cp target/*.jar dist
-	cp src/Python/sshbrutewj dist
+	cp src/Python/ssslasher dist
 
 run:
 	mvn clean compile assembly:single
@@ -18,6 +18,6 @@ install:
 	mvn clean compile assembly:single
 	mkdir dist
 	cp target/*.jar dist
-	chmod +x src/Python/sshbrutewj 
-	cp src/Python/sshbrutewj dist
+	chmod +x src/Python/ssslasher
+	cp src/Python/ssslasher dist
 	cp dist/* /usr/local/bin
