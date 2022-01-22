@@ -4,7 +4,7 @@ build:
 	mkdir dist
 	cp target/*.jar dist
 	cp src/Python/ssslasher dist
-	pip3 install src/Python/requirements.txt
+	pip3 install -r src/Python/requirements.txt
 
 run:
 	mvn clean compile assembly:single
