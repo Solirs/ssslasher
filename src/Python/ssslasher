@@ -5,15 +5,58 @@ import argparse
 import os
 import sys
 
-version = "ALPHA 1.0.0"
+version = "PRE-Release 1.0.0"
 file_path = os.path.dirname(os.path.realpath(__file__))
 jarpath = os.path.join(file_path, "java-sshbrutewj.jar")
 
+def banner():
+    banner = f"""
+{Fore.RED}
+  ██████   ██████   ██████  ██▓    ▄▄▄        ██████  ██░ ██ ▓█████  ██▀███  
+▒██    ▒ ▒██    ▒ ▒██    ▒ ▓██▒   ▒████▄    ▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██ ▒ ██▒
+░ ▓██▄   ░ ▓██▄   ░ ▓██▄   ▒██░   ▒██  ▀█▄  ░ ▓██▄   ▒██▀▀██░▒███   ▓██ ░▄█ ▒
+  ▒   ██▒  ▒   ██▒  ▒   ██▒▒██░   ░██▄▄▄▄██   ▒   ██▒░▓█ ░██ ▒▓█  ▄ ▒██▀▀█▄  
+▒██████▒▒▒██████▒▒▒██████▒▒░██████▒▓█   ▓██▒▒██████▒▒░▓█▒░██▓░▒████▒░██▓ ▒██▒
+▒ ▒▓▒ ▒ ░▒ ▒▓▒ ▒ ░▒ ▒▓▒ ▒ ░░ ▒░▓  ░▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒░░ ▒░ ░░ ▒▓ ░▒▓░
+░ ░▒  ░ ░░ ░▒  ░ ░░ ░▒  ░ ░░ ░ ▒  ░ ▒   ▒▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░  ░▒ ░ ▒░
+░  ░  ░  ░  ░  ░  ░  ░  ░    ░ ░    ░   ▒   ░  ░  ░   ░  ░░ ░   ░     ░░   ░ 
+      ░        ░        ░      ░  ░     ░  ░      ░   ░  ░  ░   ░  ░   ░     
+
+                        {Fore.WHITE}             **
+                                     ()
+                                     ||
+                                   @----@  {Fore.RED}
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     ||
+                                     \/ {Fore.RESET}
+"""                             
+    return banner
 def credits():
-    print("ssslasher" + version)
-    print("Credits:")
-    print("Ayple https://github.com/ItsNotAyPle")
-    print("Solirs https://github.com/Solirs")
+
+    print(banner())
+
+    credits = f"""
+    ssslasher {version}
+    by Ayple https://github.com/ItsNotAyPle and Solirs https://github.com/Solirs.
+    Repo: https://github.com/Solirs/ssslasher
+    Python version : {sys.version}
+    """
+
+
+    print(credits)
     sys.exit(0)
 
 def preattack(ip, port, username, wordlist, thread_count, verbose_mode, timeout):

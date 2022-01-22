@@ -13,19 +13,6 @@ It's quite fast, provides a pretty and clear command line interface, works out o
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Install
 
 
