@@ -26,7 +26,18 @@ It's quite fast, provides a pretty and clear command line interface, works out o
 
 
 
+# Install
 
+
+## Build from source
+
+1. Install maven, openjdk, GNU make, and python.
+
+2. Clone the repo. `git clone https://github.com/Solirs/ssslasher.git`
+
+3. Build it. `sudo make install` on linux.
+
+4. Test it with `ssshlasher`
 
 
 
