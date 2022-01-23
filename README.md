@@ -7,6 +7,8 @@ ssslasher (Secure Shell Slasher) is an easy to use multithreaded SSH password br
 It's quite fast, provides a pretty and clear command line interface, works out of the box with no extra setup outside of python modules.
 
 
+[!alt-text](https://github.com/Solirs/ssslasher/blob/main/img/banner.png?raw=true)
+
 
 
 
