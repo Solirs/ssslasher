@@ -3,7 +3,7 @@
 by Solirs(https://github.com/Solirs) and ItsNotAyple(https://github.com/ItsNotAyPle)
 
 
-ssslasher is an easy to use multithreaded SSH password bruteforcing tool written mainly in Java, but with the entry point written in python for convenience.
+ssslasher (Secure Shell Slasher) is an easy to use multithreaded SSH password bruteforcing tool written mainly in Java, but with the entry point written in python for convenience.
 It's quite fast, provides a pretty and clear command line interface, works out of the box with no extra setup outside of python modules.
 
 
@@ -29,7 +29,7 @@ It's quite fast, provides a pretty and clear command line interface, works out o
 ## From release tarball
 
 
-1. Make sure you have python, openjdk, and pip installed.
+1. Make sure you have python, openjdk, GNU make, and pip installed.
 
 1. Go to the latest release and install the tar.xz file. https://github.com/Solirs/ssslasher/releases/tag/v1.0.0
 
