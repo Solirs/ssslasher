@@ -43,7 +43,23 @@ NOTE: You might want to chown the files to your user.
 4. Test it with `ssslasher`
 
 
+# Use
 
+```
+usage: ssslasher [-h] -w W -u U -i I [-p P] [-ti TI] [-v] [-t T]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -w W        The wordlist file path for the dictionary attack
+  -u U        Username of the account
+  -i I        IP
+  -p P        Port
+  -ti TI      Timeout
+  -v          Verbose mode
+  -t T        The number of threads you wish to use. The more threads used the
+              faster but could lead to some problems and easily notify the
+              victim.
+```
 
 
 
