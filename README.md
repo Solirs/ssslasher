@@ -45,7 +45,7 @@ NOTE: You might want to chown the files to your user.
 
 # Use
 
-
+```
 -i [ip] : The ip address of the target server
 
 -u [username] : The name of the user you want to try to bruteforce
@@ -59,6 +59,7 @@ NOTE: You might want to chown the files to your user.
 -p [port] : Port.
 
 -ti [timeoutinmilliseconds] : Timeout.
+```
 
 
 # Contribution
