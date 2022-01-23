@@ -45,22 +45,20 @@ NOTE: You might want to chown the files to your user.
 
 # Use
 
-```
-usage: ssslasher [-h] -w W -u U -i I [-p P] [-ti TI] [-v] [-t T]
 
-optional arguments:
-  -h, --help  show this help message and exit
-  -w W        The wordlist file path for the dictionary attack
-  -u U        Username of the account
-  -i I        IP
-  -p P        Port
-  -ti TI      Timeout
-  -v          Verbose mode
-  -t T        The number of threads you wish to use. The more threads used the
-              faster but could lead to some problems and easily notify the
-              victim.
-```
+-i [ip] : The ip address of the target server
 
+-u [username] : The name of the user you want to try to bruteforce
+
+-w [path-to-wordlist] : The path of the wordlist to use, relative or absolute.
+
+-t [numberofthreads] : The number of tasks to use (max 4 recommended)
+
+-v : Verbose mode
+
+-p [port] : Port.
+
+-ti [timeoutinmilliseconds] : Timeout.
 
 
 # Contribution
