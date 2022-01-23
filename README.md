@@ -29,7 +29,7 @@ It's quite fast, provides a pretty and clear command line interface, works out o
 ## From release tarball
 
 
-1. Make sure you have python, openjdk, and pip installed.
+1. Make sure you have python, openjdk, GNU make, and pip installed.
 
 1. Go to the latest release and install the tar.xz file. https://github.com/Solirs/ssslasher/releases/tag/v1.0.0
 
