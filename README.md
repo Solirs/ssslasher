@@ -1,6 +1,6 @@
 # ssslasher
 
-by Solirs(https://github.com/Solirs) and ItsNotAyple(https://github.com/ItsNotAyPle)
+by [Solirs](https://github.com/Solirs) and [ItsNotAyple](https://github.com/ItsNotAyPle)
 
 
 ssslasher (Secure Shell Slasher) is an easy to use multithreaded SSH password bruteforcing tool written mainly in Java, but with the entry point written in python for convenience.
